@@ -23,8 +23,8 @@ OPERATORS = ({
     '^': (2, lambda x, y: x ** y), '**': (2, lambda x, y: x ** y),
     '//': (2, lambda x, y: x // y), '%': (2, lambda x, y: x % y),
 })
-countO = 0  # Количество открытых скобок
-countC = 0  # Количество закрытых скобок
+countO = 0  
+countC = 0 
 i = 0
 j = 0
 k = 0
