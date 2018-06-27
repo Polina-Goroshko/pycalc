@@ -107,20 +107,20 @@ exprInList = list(expr)
 parsedExpr = []
 number = ''
 bracket = ''
+sign=''
 for s in exprInList:
     if s in masOfNumbers:
+        if sign != "":
+            parsedExpr.append(sign)
+            sign = ''
         number = number + s
     elif s in masOfSigns:
         if number == "":
-            sign = s
-            parsedExpr.append(sign)
-            sign = ''
+            sign = sign + s
         else:
             parsedExpr.append(number)
             number = ''
-            sign = s
-            parsedExpr.append(sign)
-            sign = ''
+            sign = sign + s
     elif s == '(' or s == ')':
         if number == "":
             bracket = s
@@ -132,7 +132,6 @@ for s in exprInList:
             bracket = s
             parsedExpr.append(bracket)
             bracket = ''
-
     else:
         print("ERROR: maybe it is a function or something else, but I don't know this now...Sorry")
         sys.exit()
