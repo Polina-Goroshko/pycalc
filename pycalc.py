@@ -184,4 +184,21 @@ for token in mas2:
         stack.append(token)
 print(stack[0])
 
+# A check for module existing
+if bool(module) is False:
+    print("Modules to import: don't exist")
+    pass
+else:
+    print("Modules to import: exist")
+    # Writing the content from the so-named buffer to the main file
+    for var in module:
+        f1 = open('so_named_buffer.py', 'a')
+        with open(var, 'r') as f2:
+            for line in f2:
+                f1.write(line)
+    f1.close()
+
+# Importing a so_named buffer that contains the content of the modules to import
+import so_named_buffer
+
 
